@@ -1,5 +1,9 @@
+First clone repository:
+git clone https://github.com/ElinHallengren/reactJS.git
+
+PUT EVERYTHING INTO THIS FOLDER (reactJS that was just created)
+
 git init
-git remote add origin https://github.com/ElinHallengren/reactJS.git 
 git add .
 git commit -m ""
-git push origin master
+git push 
