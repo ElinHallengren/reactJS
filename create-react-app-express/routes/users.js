@@ -19,7 +19,7 @@ app.get('/', function(req, res, next) {
                     data: rows
                 }) */
                 //console.log(rows);
-                res.send({ express: rows });
+                res.send(rows);
             }
         })
     })
@@ -72,14 +72,14 @@ app.post('/add', [
                 })
             } else {                
                 req.flash('success', 'Data added successfully!')
-                
+                res.send('ok');
                 // render to views/user/add.ejs
-                res.render('user/add', {
+                /* res.render('user/', {
                     title: 'Add New User',
                     name: '',
                     age: '',
                     email: ''                    
-                })
+                }) */
             }
         })
     })
