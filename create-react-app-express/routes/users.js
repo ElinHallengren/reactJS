@@ -26,7 +26,7 @@ app.get('/', function(req, res, next) {
 })
  
 // SHOW ADD USER FORM
-app.get('/add', function(req, res, next){    
+/*app.get('/add', function(req, res, next){    
     // render to views/user/add.ejs
     res.render('user/add', {
         title: 'Add New User',
@@ -34,7 +34,7 @@ app.get('/add', function(req, res, next){
         age: '',
         email: ''        
     })
-})
+})*/
  
 // ADD NEW USER POST ACTION
 const { check, validationResult } = require('express-validator');
@@ -43,7 +43,7 @@ app.post('/add', [
     // username must be an email
     check('name').notEmpty().trim().escape(),
     // password must be at least 5 chars long
-    check('age').isLength({ min: 2 }).notEmpty().trim().escape(),
+    check('password').isLength({ min: 5 }).notEmpty().trim().escape(),
     check('email').isEmail().normalizeEmail().notEmpty().trim().escape()
 
   ], (req, res) => {
@@ -54,7 +54,7 @@ app.post('/add', [
     }
     var user = {
         name: req.body.name,
-        age: req.body.age,
+        password: req.body.password,
         email: req.body.email
     }    
     req.getConnection(function(error, conn) {
@@ -64,22 +64,23 @@ app.post('/add', [
                 req.flash('error', err)
                 
                 // render to views/user/add.ejs
-                res.render('user/add', {
+                /*res.render('user/add', {
                     title: 'Add New User',
                     name: user.name,
                     age: user.age,
                     email: user.email                    
-                })
+                })*/
             } else {                
                 req.flash('success', 'Data added successfully!')
-                res.send('ok');
+                res.send('');
                 // render to views/user/add.ejs
-                /* res.render('user/', {
+                 /*res.render('user/add', {
                     title: 'Add New User',
                     name: '',
                     age: '',
                     email: ''                    
                 }) */
+                
             }
         })
     })

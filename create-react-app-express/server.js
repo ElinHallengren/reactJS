@@ -56,6 +56,6 @@ app.post('/api/world', (req, res) => {
   );
 });
 app.set('views', path.join(__dirname, './src/components')); 
-app.use('/users', users)
+app.use('/users', users);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css'
-import ShowUser from './components/ShowUser';
+import UserForm from './components/UserForm';
 
 function App() {
   return (
     <div className="App">
-      <ShowUser />
+      <UserForm />
     </div>
   );
 }
