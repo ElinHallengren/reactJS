@@ -2,17 +2,36 @@ import React, { Component } from 'react';
 import UserData from './UserData';
 import Confirm from './Confirm';
 import Success from './Success';
+import DisplayTable from './DisplayTable';
 
 
 export class UserForm extends Component {
     state= {
         step: 1,
         orderNumber: 1,
-        name: 'Elin',
-        email: 'elin@gmail.com',
+        name: '',
+        email: '',
         password: '',
-        repassword: ''
+        repassword: '',
+        error: null,
+        users: []
     }
+    
+      
+      componentDidMount() {
+        fetch('/users/')
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                users: result
+              });          
+            },
+            (error) => {
+              this.setState({ error });
+            }
+          )
+      }  
     // Move to the next step
     nextStep = () => {
         const {step} = this.state;
@@ -29,15 +48,17 @@ export class UserForm extends Component {
     }
     // Start the program over and update to new order number
     startOver = () => {
-        const {orderNumber} = this.state;
         this.setState({
             step: 1,
-            orderNumber: orderNumber+1,
             name: '',
             email: '',
             password: '',
             repassword: ''
         });
+    }
+    display = () =>{
+        this.componentDidMount();
+        this.setState({ step: 4});
     }
     // Handle change and add it to the state
     handleChange = (input) => e => {
@@ -45,7 +66,7 @@ export class UserForm extends Component {
     }
     render() {        
         const {step} = this.state;
-        const { name, email, password, repassword }= this.state;
+        const { name, email, password, repassword, users }= this.state;
         const values = { name, email, password, repassword };
 
         switch(step){
@@ -69,6 +90,14 @@ export class UserForm extends Component {
                 return(
                     <Success
                         startOver = {this.startOver}
+                        display = {this.display}
+                    />
+                );
+            case 4:
+                return(
+                    <DisplayTable 
+                        startOver = {this.startOver}
+                        users = {users}
                     />
                 );
         }

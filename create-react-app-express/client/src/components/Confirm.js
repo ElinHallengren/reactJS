@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import {List, ListItem} from 'material-ui/List';
 
 export class Confirm extends Component {
@@ -17,7 +17,6 @@ export class Confirm extends Component {
             body: JSON.stringify({ name: this.props.values.name, email: this.props.values.email, password: this.props.values.password }),
           });
           const body= await response.text();
-          console.log(this.props.values.password);
         this.props.nextStep();
     }
     back = () => e =>{
@@ -48,18 +47,16 @@ export class Confirm extends Component {
                         />
                     </List>
                     <br/>
-                    <RaisedButton 
-                        label='Back'
-                        primary= {false}
-                        style= {this.styles}
+                    <Button 
+                        variant='contained'
                         onClick = {this.back()}
-                    />
-                    <RaisedButton 
-                        label='Confirm'
-                        primary= {true}
-                        style= {this.styles}
+                    >Back</Button>
+                    <Button 
+                        variant='contained'
+                        color='primary'
                         onClick = {this.continue()}
-                    />
+                    >Confirm</Button>
+                    
                 </React.Fragment>
             </MuiThemeProvider>
         )

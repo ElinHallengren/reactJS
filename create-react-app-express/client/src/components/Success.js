@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 export class Success extends Component {
 
@@ -9,7 +9,10 @@ export class Success extends Component {
         e.preventDefault();
         this.props.startOver();
     }
-    
+    display = () => e =>{
+        e.preventDefault();
+        this.props.display();
+    }
 
     render() {
         return (
@@ -20,12 +23,16 @@ export class Success extends Component {
                     <p>Thank you for submitting your information</p>
                     <br/>
                     
-                    <RaisedButton 
-                        label='New Customer'
-                        primary= {true}
-                        style= {this.styles}
+                    <Button 
+                        variant='contained'
+                        color='secondary'
                         onClick = {this.startOver()}
-                    />
+                    >Add New User</Button>
+                    <Button 
+                        variant='contained'
+                        color='primary'
+                        onClick = {this.display()}
+                    >Display table</Button>
                 </React.Fragment>
             </MuiThemeProvider>
         )

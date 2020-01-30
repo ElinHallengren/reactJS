@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 import TextField from 'material-ui/TextField';
 
 export class UserData extends Component {
@@ -56,12 +56,12 @@ export class UserData extends Component {
                         defaultValue = {repassword}
                     />
                     <br/>
-                    <RaisedButton 
-                        label='Continue'
-                        primary= {true}
-                        style= {this.styles}
+                    <Button 
+                        variant='contained'
+                        color='primary'
                         onClick = {this.continue()}
-                    />
+                    >Continue</Button>
+                    
                 </React.Fragment>
             </MuiThemeProvider>
         )
