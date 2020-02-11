@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 create-react-app-express/node_modules
+=======
+create-react-app-express/client/node_modules/
+create-react-app-express/node_modules/
+>>>>>>> 908500e67a8787f2e0cabea5726a00085baf04b6
