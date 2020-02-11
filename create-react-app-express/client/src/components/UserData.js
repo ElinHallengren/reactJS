@@ -24,7 +24,6 @@ export class UserData extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title='Enter Customer Data'/>
                     <TextField 
                         hintText = 'Name'
                         type='text'

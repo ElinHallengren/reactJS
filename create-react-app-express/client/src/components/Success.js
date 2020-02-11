@@ -9,16 +9,12 @@ export class Success extends Component {
         e.preventDefault();
         this.props.startOver();
     }
-    display = () => e =>{
-        e.preventDefault();
-        this.props.display();
-    }
+    
 
     render() {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title='Success'/>
                     <h1>Information Successfully uploaded!</h1>
                     <p>Thank you for submitting your information</p>
                     <br/>
@@ -28,11 +24,6 @@ export class Success extends Component {
                         color='secondary'
                         onClick = {this.startOver()}
                     >Add New User</Button>
-                    <Button 
-                        variant='contained'
-                        color='primary'
-                        onClick = {this.display()}
-                    >Display table</Button>
                 </React.Fragment>
             </MuiThemeProvider>
         )

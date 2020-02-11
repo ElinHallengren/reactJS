@@ -3,16 +3,17 @@ import UserData from './UserData';
 import Confirm from './Confirm';
 import Success from './Success';
 import DisplayTable from './DisplayTable';
+import ButtonAppBar from './ButtonAppBar';
 
 
 export class UserForm extends Component {
     state= {
         step: 1,
         orderNumber: 1,
-        name: '',
-        email: '',
-        password: '',
-        repassword: '',
+        name: 'Ein  ',
+        email: 'lili@gmail.com',
+        password: 'nowis',
+        repassword: 'nowis',
         error: null,
         users: []
     }
@@ -72,33 +73,57 @@ export class UserForm extends Component {
         switch(step){
             case 1: 
                 return(
-                    <UserData 
+                    <React.Fragment>
+                        <ButtonAppBar 
+                            startOver = {this.startOver}
+                            display = {this.display}
+                        />
+                        <UserData 
                         nextStep = {this.nextStep}
                         handleChange = {this.handleChange}
                         values = {values}
-                    />
+                        />
+                    </React.Fragment>
+                    
                 );
             case 2:
                 return(
-                    <Confirm 
-                        values = {values}
-                        prevStep = {this.prevStep}
-                        nextStep = {this.nextStep}
-                    />
+                    <React.Fragment>
+                        <ButtonAppBar 
+                            startOver = {this.startOver}
+                            display = {this.display}
+                        />
+                        <Confirm 
+                            values = {values}
+                            prevStep = {this.prevStep}
+                            nextStep = {this.nextStep}
+                        />
+                    </React.Fragment>
                 );
             case 3:
                 return(
-                    <Success
-                        startOver = {this.startOver}
-                        display = {this.display}
-                    />
+                    <React.Fragment>
+                        <ButtonAppBar 
+                            startOver = {this.startOver}
+                            display = {this.display}
+                        />
+                        <Success
+                            startOver = {this.startOver}
+                        />
+                    </React.Fragment>
                 );
             case 4:
                 return(
-                    <DisplayTable 
-                        startOver = {this.startOver}
-                        users = {users}
-                    />
+                    <React.Fragment>
+                        <ButtonAppBar 
+                            startOver = {this.startOver}
+                            display = {this.display}
+                        />
+                        <DisplayTable 
+                            startOver = {this.startOver}
+                            users = {users}
+                        />
+                    </React.Fragment>
                 );
         }
     }

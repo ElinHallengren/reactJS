@@ -30,7 +30,6 @@ export class Confirm extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                    <AppBar title='Confirm'/>
                     <List>
                         <ListItem 
                             primaryText= 'Customers Name'
