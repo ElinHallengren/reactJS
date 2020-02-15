@@ -6,15 +6,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import { makeStyles } from '@material-ui/core/styles';
-import Menu from './tttt/Menu';
-import ButtonAppBar from './ButtonAppBar';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -27,19 +19,29 @@ const useStyles = makeStyles(theme => ({
       flexGrow: 1,
     },
 
-  }));
-  
-
+  }));  
 export class DisplayTable extends Component {
-    startOver = () => e =>{
-        e.preventDefault();
-        this.props.startOver();
+    state= {
+        error: null,
+        users: []
     }
+    componentDidMount() {
+        fetch('/users/')
+          .then(res => res.json())
+          .then(
+            (result) => {
+              this.setState({
+                users: result
+              });          
+            },
+            (error) => {
+              this.setState({ error });
+            }
+          )
+      }      
     
     render() {
-        const {users} = this.props;
-        
-  const classes = {useStyles};
+        const {users} = this.state;
         return (
             <div>
                 <TableContainer component={Paper}>
@@ -69,24 +71,4 @@ export class DisplayTable extends Component {
         )
     }
 }
-/*<div className={classes.root}>
-                    <AppBar position="static">
-                        <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-                            <MenuIcon />
-                            <Menu />
-                        </IconButton>
-                        <Typography variant="h6" className={classes.title}>
-                            User List
-                        </Typography>
-                        <Button 
-                            
-                            color='inherit'
-                            onClick = {this.startOver()}>
-                            Add New User
-                        </Button>
-                        </Toolbar>
-                    </AppBar>
-                </div>*/
-
 export default DisplayTable

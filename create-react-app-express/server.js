@@ -46,6 +46,7 @@ app.use(session({
 app.use(flash())
 
 app.get('/api/hello', (req, res) => {
+  console.log('askdfjsakdjadsal');
   res.send({ express: 'Hello From Express' });
 });
 

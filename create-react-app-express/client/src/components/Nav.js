@@ -5,8 +5,8 @@ export class Nav extends Component {
     render() {
         return (
             <nav>
-                <ul>
-                    <li>Add New User</li>
+                <ul>    
+                    <li>Add New Users</li>
                     <li>Display Table</li>
                 </ul>
             </nav>

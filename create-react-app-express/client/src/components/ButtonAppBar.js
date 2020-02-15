@@ -32,11 +32,11 @@ export default function ButtonAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Add User to Server
+            <a href='/'>Store Name</a>
           </Typography>
          
-          <Button color="inherit" component="Link" to='/UserData' >Add New User</Button>
-          <Button  component='Link' to='/DisplayTable.js'>Display Table</Button>
+          <Button color="inherit" href="/newUser">Add New User</Button>
+          <Button  href='/showTable'>Display Table</Button>
         </Toolbar>
       </AppBar>
     </div>

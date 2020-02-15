@@ -73,11 +73,7 @@ export class UserForm extends Component {
         switch(step){
             case 1: 
                 return(
-                    <React.Fragment>
-                        <ButtonAppBar 
-                            startOver = {this.startOver}
-                            display = {this.display}
-                        />
+                    <React.Fragment>                        
                         <UserData 
                         nextStep = {this.nextStep}
                         handleChange = {this.handleChange}
@@ -89,10 +85,6 @@ export class UserForm extends Component {
             case 2:
                 return(
                     <React.Fragment>
-                        <ButtonAppBar 
-                            startOver = {this.startOver}
-                            display = {this.display}
-                        />
                         <Confirm 
                             values = {values}
                             prevStep = {this.prevStep}
@@ -103,25 +95,8 @@ export class UserForm extends Component {
             case 3:
                 return(
                     <React.Fragment>
-                        <ButtonAppBar 
-                            startOver = {this.startOver}
-                            display = {this.display}
-                        />
                         <Success
                             startOver = {this.startOver}
-                        />
-                    </React.Fragment>
-                );
-            case 4:
-                return(
-                    <React.Fragment>
-                        <ButtonAppBar 
-                            startOver = {this.startOver}
-                            display = {this.display}
-                        />
-                        <DisplayTable 
-                            startOver = {this.startOver}
-                            users = {users}
                         />
                     </React.Fragment>
                 );
