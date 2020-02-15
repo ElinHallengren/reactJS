@@ -20,7 +20,7 @@ var dbOptions = {
     port:       config.database.port, 
     database: config.database.db
 }
-app.use(myConnection(mysql, dbOptions, 'pool'))
+app.use(myConnection(mysql, dbOptions, 'single'))
 var index = require('./routes/index')
 var users = require('./routes/users')
 
