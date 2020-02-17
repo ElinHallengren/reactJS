@@ -6,20 +6,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
-    root: {
-      flexGrow: 1,
-    },
-    menuButton: {
-      marginRight: theme.spacing(2),
-    },
-    title: {
-      flexGrow: 1,
-    },
-
-  }));  
+ 
 export class DisplayTable extends Component {
     state= {
         error: null,
@@ -52,6 +40,9 @@ export class DisplayTable extends Component {
                                 <TableCell>Name</TableCell>
                                 <TableCell>Email</TableCell>
                                 <TableCell>Password</TableCell>
+                                <TableCell>Phone Number</TableCell>
+                                <TableCell>Address</TableCell>
+                                <TableCell>Store Name</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -61,6 +52,9 @@ export class DisplayTable extends Component {
                                 <TableCell>{user.name}</TableCell>                  
                                 <TableCell>{user.email}</TableCell>                  
                                 <TableCell>{user.password}</TableCell>                  
+                                <TableCell>{user.phone}</TableCell>                  
+                                <TableCell>{user.address}</TableCell>                  
+                                <TableCell>{user.store_name}</TableCell>                  
                                 </TableRow>
                             ))}
                         </TableBody>            
