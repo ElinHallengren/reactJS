@@ -55,7 +55,10 @@ app.post('/add', [
     var user = {
         name: req.body.name,
         password: req.body.password,
-        email: req.body.email
+        email: req.body.email,
+        phone: req.body.phoneNumber,
+        address: req.body.address,
+        store_name: req.body.storeName
     }    
     req.getConnection(function(error, conn) {
         conn.query('INSERT INTO customer_info SET ?', user, function(err, result) {
