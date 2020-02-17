@@ -37,7 +37,7 @@ export default function ButtonAppBar() {
             <a style={{ textDecoration: 'none', color: '#fff' }} href='/'>Store Name</a>
           </Typography>
          
-          <Button color="inherit" href="/newUser">Add New User</Button>
+          <Button color="inherit" href="/newUser">Sign Up</Button>
           <Button  href='/showTable'>Display Table</Button>
         </Toolbar>
       </AppBar>
