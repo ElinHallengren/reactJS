@@ -14,6 +14,9 @@ export class UserForm extends Component {
         email: 'lili@gmail.com',
         password: 'nowis',
         repassword: 'nowis',
+        phoneNumber: '044120030',
+        address: 'Stockholm',
+        storeName: 'Star Tailor',
         error: null,
         users: []
     }
@@ -54,7 +57,10 @@ export class UserForm extends Component {
             name: '',
             email: '',
             password: '',
-            repassword: ''
+            repassword: '',
+            phoneNumber: '',
+            address: '',
+            storeName: ''
         });
     }
     display = () =>{
@@ -67,8 +73,8 @@ export class UserForm extends Component {
     }
     render() {        
         const {step} = this.state;
-        const { name, email, password, repassword, users }= this.state;
-        const values = { name, email, password, repassword };
+        const { name, email, password, repassword, phoneNumber, address, storeName, users }= this.state;
+        const values = { name, email, password, repassword, phoneNumber, address, storeName };
 
         switch(step){
             case 1: 

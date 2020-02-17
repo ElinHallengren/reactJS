@@ -14,7 +14,8 @@ export class Confirm extends Component {
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ name: this.props.values.name, email: this.props.values.email, password: this.props.values.password }),
+            body: JSON.stringify({ name: this.props.values.name, email: this.props.values.email, password: this.props.values.password, 
+                phoneNumber: this.props.values.phoneNumber, address: this.props.values.address, storeName: this.props.values.storeName }),
           });
           const body= await response.text();
         this.props.nextStep();
@@ -32,17 +33,29 @@ export class Confirm extends Component {
                 <React.Fragment>
                     <List>
                         <ListItem 
-                            primaryText= 'Customers Name'
+                            primaryText= 'Name'
                             secondaryText= {values.name}
                         />
                         <ListItem 
-                            primaryText= 'Customers Email'
+                            primaryText= 'Email'
                             secondaryText= {values.email}
                         />
                         <ListItem 
                             primaryText= 'Password'
                             secondaryText= '***********'
                             
+                        />
+                        <ListItem 
+                            primaryText= 'Phone Number'
+                            secondaryText= {values.phoneNumber}
+                        />
+                        <ListItem 
+                            primaryText= 'Address'
+                            secondaryText= {values.address}
+                        />
+                        <ListItem 
+                            primaryText= 'Store Name'
+                            secondaryText= {values.storeName}
                         />
                     </List>
                     <br/>

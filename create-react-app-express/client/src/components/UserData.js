@@ -20,7 +20,7 @@ export class UserData extends Component {
     }
     render() {
         const {handleChange} = this.props;
-        const { name, email, password, repassword }= this.props.values;
+        const { name, email, password, repassword, phoneNumber, address, storeName }= this.props.values;
         return (
             <MuiThemeProvider>
                 <React.Fragment>
@@ -53,6 +53,29 @@ export class UserData extends Component {
                         type='Password'
                         onChange = {handleChange('repassword')}
                         defaultValue = {repassword}
+                    />
+                    <br/>
+                    <TextField 
+                        hintText = 'Phone Number'
+                        floatingLabelText = 'Phone Number'
+                        type='Number'
+                        onChange = {handleChange('phoneNumber')}
+                        defaultValue = {phoneNumber}
+                    />
+                    <TextField 
+                        hintText = 'Address'
+                        floatingLabelText = 'Address'
+                        type='Text'
+                        onChange = {handleChange('address')}
+                        defaultValue = {address}
+                    />
+                    <br/>
+                    <TextField 
+                        hintText = 'Store Name'
+                        floatingLabelText = 'Store Name'
+                        type='Text'
+                        onChange = {handleChange('storeName')}
+                        defaultValue = {storeName}
                     />
                     <br/>
                     <Button 
